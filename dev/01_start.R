@@ -43,9 +43,9 @@ golem::use_readme_rmd(open = FALSE)
 devtools::build_readme()
 # Note that `contact` is required since usethis version 2.1.5
 # If your {usethis} version is older, you can remove that param
-usethis::use_code_of_conduct(contact = "Golem User")
+# usethis::use_code_of_conduct(contact = "Golem User")
 usethis::use_lifecycle_badge("Experimental")
-usethis::use_news_md(open = FALSE)
+# usethis::use_news_md(open = FALSE)
 
 ## Init Testing Infrastructure ----
 ## Create a template for tests
@@ -53,7 +53,7 @@ golem::use_recommended_tests()
 
 ## Favicon ----
 # If you want to change the favicon (default is golem's one)
-golem::use_favicon() # path = "path/to/ico". Can be an online file.
+# golem::use_favicon() # path = "path/to/ico". Can be an online file.
 # golem::remove_favicon() # Uncomment to remove the default favicon
 
 ## Add helper functions ----
@@ -63,10 +63,10 @@ golem::use_utils_server(with_test = TRUE)
 ## Use git ----
 usethis::use_git()
 ## Sets the remote associated with 'name' to 'url'
-usethis::use_git_remote(
-  name = "origin",
-  url = "https://github.com/<OWNER>/<REPO>.git"
-)
+# usethis::use_git_remote(
+#   name = "origin",
+#   url = "https://github.com/<OWNER>/<REPO>.git"
+# )
 
 # You're now set! ----
 

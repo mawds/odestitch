@@ -10,7 +10,13 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     # Your application UI logic
     fluidPage(
-      golem::golem_welcome_page() # Remove this line to start building your UI
+      pageWithSidebar(
+        titlePanel("ODE Stitch"),
+        sidebarPanel(),
+        mainPanel(
+          mod_resultgraph_ui("resultgraph_1")
+        )
+      )
     )
   )
 }
