@@ -12,9 +12,11 @@ app_ui <- function(request) {
     fluidPage(
       pageWithSidebar(
         titlePanel("ODE Stitch"),
-        sidebarPanel(),
+        sidebarPanel(
+          mod_lorentz_ui("lorentz_1")
+        ),
         mainPanel(
-          mod_resultgraph_ui("resultgraph_1")
+          shinycssloaders::withSpinner(mod_resultgraph_ui("resultgraph_1"))
         )
       )
     )

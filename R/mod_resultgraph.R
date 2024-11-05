@@ -1,6 +1,6 @@
 #' resultgraph UI Function
 #'
-#' @description A shiny Module.
+#' @description Provides a rotatable 3d line graph
 #'
 #' @param id,input,output,session Internal parameters for {shiny}.
 #'
@@ -21,18 +21,18 @@ mod_resultgraph_ui <- function(id) {
 #'
 #' @noRd
 mod_resultgraph_server <- function(id, points_to_plot){
+
+  stopifnot(is.reactive(points_to_plot))
+
   moduleServer(id, function(input, output, session){
     ns <- session$ns
 
     output$maingraph <- renderPlot({
-
-      testdata <- matrix(c(0,0,0,1,1,0,1,1,1), ncol=3, byrow=TRUE)
-      points_to_plot <- testdata
-
-      plot3D::lines3D(points_to_plot[,1],
-                      points_to_plot[,2],
-                      points_to_plot[,3],
-                         phi=input$phi, theta=input$theta)
+      plot3D::lines3D(points_to_plot()[,2],
+                      points_to_plot()[,3],
+                      points_to_plot()[,4],
+                      phi=input$phi,
+                      theta=input$theta)
     })
 
   })

@@ -6,5 +6,7 @@
 #' @noRd
 app_server <- function(input, output, session) {
   # Your application server logic
-  mod_resultgraph_server("resultgraph_1")
+  plotdata <- mod_lorentz_server("lorentz_1")
+
+  mod_resultgraph_server("resultgraph_1", points_to_plot=plotdata)
 }
