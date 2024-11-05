@@ -13,6 +13,8 @@ mod_stitchgraph_ui <- function(id) {
   tagList(
     plotOutput(ns("two_d_plot")),
     checkboxInput(ns("show_stitches"), label="Show stitches"),
+    sliderInput(ns("downsample_stitches"), label="Keep every nth stitch",
+                value=1, min=1, max=10),
     downloadButton(ns("save_stitch_svg"), label="Save svg")
 
   )
@@ -21,12 +23,18 @@ mod_stitchgraph_ui <- function(id) {
 #' stitchgraph Server Functions
 #'
 #' @noRd
-mod_stitchgraph_server <- function(id, transformation_matrix, plotdata){
+mod_stitchgraph_server <- function(id, transformation_matrix, full_plotdata){
 
   stopifnot(is.reactive(transformation_matrix))
-  stopifnot(is.reactive(plotdata))
+  stopifnot(is.reactive(full_plotdata))
   moduleServer(id, function(input, output, session){
     ns <- session$ns
+
+    plotdata <- eventReactive({full_plotdata(); input$downsample_stitches},
+                              {
+                                every_nth(full_plotdata(),
+                                          input$downsample_stitches)
+                              })
 
     two_d_ggplot <- eventReactive({transformation_matrix(); plotdata()}, {
 

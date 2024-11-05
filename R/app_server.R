@@ -12,5 +12,5 @@ app_server <- function(input, output, session) {
 
   mod_stitchgraph_server("stitchgraph_1",
                          transformation_matrix=transformation_matrix,
-                         plotdata=plotdata)
+                         full_plotdata=plotdata)
 }

@@ -27,6 +27,7 @@ golem::add_module(name = "stitchgraph", with_test = TRUE) # Name of the module
 ## Add helper functions ----
 ## Creates fct_* and utils_*
 golem::add_fct("solve_lorentz", with_test = TRUE)
+golem::add_fct("every_nth", with_test = TRUE)
 golem::add_utils("helpers", with_test = TRUE)
 
 ## External resources
