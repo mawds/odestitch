@@ -10,4 +10,7 @@ app_server <- function(input, output, session) {
 
   transformation_matrix <- mod_resultgraph_server("resultgraph_1", points_to_plot=plotdata)
 
+  mod_stitchgraph_server("stitchgraph_1",
+                         transformation_matrix=transformation_matrix,
+                         plotdata=plotdata)
 }

@@ -16,7 +16,13 @@ app_ui <- function(request) {
           mod_lorentz_ui("lorentz_1")
         ),
         mainPanel(
-          shinycssloaders::withSpinner(mod_resultgraph_ui("resultgraph_1"))
+          tabsetPanel(
+            tabPanel("3d view",
+                     shinycssloaders::withSpinner(mod_resultgraph_ui("resultgraph_1"))),
+            tabPanel("Export view",
+                     mod_stitchgraph_ui("stitchgraph_1")
+            )
+          )
         )
       )
     )
