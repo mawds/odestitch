@@ -14,7 +14,7 @@ mod_lorentz_ui <- function(id) {
     sliderInput(ns("beta"), "Beta", value=8/3, min=1, max=10),
     sliderInput(ns("rho"), "Rho", value=28, min=1,max=50),
     numericInput(ns("delta_t"), "delta t", value=1e-3),
-    numericInput(ns("steps"), "Steps", value=5e4)
+    numericInput(ns("steps"), "Steps", value=5e3)
     # TODO y[1:3]
   )
 }

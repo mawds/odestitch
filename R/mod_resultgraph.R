@@ -12,7 +12,7 @@ mod_resultgraph_ui <- function(id) {
   tagList(
     plotOutput(ns("maingraph")),
     sliderInput(ns("phi"), "Phi", value=40,  min=0, max=360, step=5),
-    sliderInput(ns("theta"), "Theta", value=40, min=0, max=360, step=5)
+    sliderInput(ns("theta"), "Theta", value=40, min=0, max=360, step=5),
 
   )
 }
@@ -27,14 +27,21 @@ mod_resultgraph_server <- function(id, points_to_plot){
   moduleServer(id, function(input, output, session){
     ns <- session$ns
 
+    three_d_plot <- eventReactive({points_to_plot(); input$phi; input$theta},
+                                  plot3D::lines3D(points_to_plot()[,2],
+                                                  points_to_plot()[,3],
+                                                  points_to_plot()[,4],
+                                                  phi=input$phi,
+                                                  theta=input$theta,
+                                                  col="blue")
+
+    )
+
     output$maingraph <- renderPlot({
-      plot3D::lines3D(points_to_plot()[,2],
-                      points_to_plot()[,3],
-                      points_to_plot()[,4],
-                      phi=input$phi,
-                      theta=input$theta,
-                      col="blue")
+      three_d_plot()
     })
+
+    invisible(reactive(three_d_plot())) # Return transformation matrix
 
   })
 }
