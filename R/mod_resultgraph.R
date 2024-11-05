@@ -32,7 +32,8 @@ mod_resultgraph_server <- function(id, points_to_plot){
                       points_to_plot()[,3],
                       points_to_plot()[,4],
                       phi=input$phi,
-                      theta=input$theta)
+                      theta=input$theta,
+                      col="blue")
     })
 
   })
