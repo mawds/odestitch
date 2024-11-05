@@ -12,6 +12,7 @@ mod_stitchgraph_ui <- function(id) {
   ns <- NS(id)
   tagList(
     plotOutput(ns("two_d_plot")),
+    checkboxInput(ns("show_stitches"), label="Show stitches"),
     downloadButton(ns("save_stitch_svg"), label="Save svg")
 
   )
@@ -40,7 +41,15 @@ mod_stitchgraph_server <- function(id, transformation_matrix, plotdata){
         ggplot2::theme_void()
     })
 
-    output$two_d_plot <- renderPlot(two_d_ggplot())
+    output$two_d_plot <- renderPlot({
+      plt <- two_d_ggplot()
+
+      if(input$show_stitches)
+        plt <- plt +
+          ggplot2::geom_point(col="blue")
+
+      plt
+      })
     output$save_stitch_svg <- downloadHandler("stitches.svg",
                                               content = function(file) {
                                                 ggplot2::ggsave(file,
