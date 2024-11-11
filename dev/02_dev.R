@@ -29,6 +29,7 @@ golem::add_module(name = "stitchgraph", with_test = TRUE) # Name of the module
 golem::add_fct("solve_lorentz", with_test = TRUE)
 golem::add_fct("every_nth", with_test = TRUE)
 golem::add_utils("helpers", with_test = TRUE)
+golem::add_fct("solve_threebody", with_test = TRUE)
 
 ## External resources
 ## Creates .js and .css files at inst/app/www
