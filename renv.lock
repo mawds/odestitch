@@ -933,23 +933,6 @@
       ],
       "Hash": "2769a88be217841b1f33ed469675c3cc"
     },
-    "odestitch": {
-      "Package": "odestitch",
-      "Version": "0.0.0.9000",
-      "Source": "unknown",
-      "Requirements": [
-        "config",
-        "deSolve",
-        "ggplot2",
-        "golem",
-        "pkgload",
-        "plot3D",
-        "shiny",
-        "shinycssloaders",
-        "tibble"
-      ],
-      "Hash": "ffa05d37793d02cd7147075549f69423"
-    },
     "openssl": {
       "Package": "openssl",
       "Version": "2.2.2",
