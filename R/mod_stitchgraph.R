@@ -58,11 +58,13 @@ mod_stitchgraph_server <- function(id, transformation_matrix, full_plotdata){
 
       plt
       })
+
     output$save_stitch_svg <- downloadHandler("stitches.svg",
                                               content = function(file) {
                                                 ggplot2::ggsave(file,
                                                                 plot=two_d_ggplot())
-                                              })
+                                              },
+                                              contentType = "image/svg+xml")
 
   })
 
