@@ -11,7 +11,6 @@ Imports:
     deSolve,
     ggplot2,
     golem,
-    pkgload,
     plot3D,
     shiny,
     shinycssloaders,
