@@ -1,0 +1,12 @@
+name: odestitch
+title: odestitch
+username: mawdsl
+account: mawdsl
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 13297491
+bundleId: 9345351
+url: https://mawdsl.shinyapps.io/odestitch/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

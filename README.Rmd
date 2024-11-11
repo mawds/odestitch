@@ -16,16 +16,44 @@ output: github_document
 # `{odestitch}`
 
 <!-- badges: start -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![R-CMD-check](https://github.com/mawds/odestitch/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mawds/odestitch/actions/workflows/R-CMD-check.yaml)
+
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental) [![R-CMD-check](https://github.com/mawds/odestitch/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mawds/odestitch/actions/workflows/R-CMD-check.yaml)
+
 <!-- badges: end -->
+
+This is a small Shiny app that plots interesting ODEs (at present only the [Lorentz System](https://en.wikipedia.org/wiki/Lorenz_system) is supported). A 2d projection of the solution can then be exported to SVG. The resulting SVG file can be imported into [Inkscape](https://inkscape.org/) where the [Inkstitch plugin](https://inkstitch.org/) can be used to output a file suitable for machine embroidery.
+
+### Inkstitch
+
+Having generated an svg file the following briefly explains how to convert this
+to a suitable format for emboridery using Inkstitch:
+
+Load the exported SVG file into Inkstitch
+Select the resulting curve
+Choose Extensions -> Ink/Stitch -> Params
+Set method to "Manual stitch" - each timestep will then be a single stitch
+(You may wish to set maximum stitch length if some time-steps result in large jumps)
+You can then save the file in the appropriate format for your machine.
+
+#### Troubleshooting
+
+If you're running Linux, and find Inkstitch's dialogue boxes don't appear, 
+restart Inkscape with:
+
+```{bash, eval = FALSE}
+export GDK_BACKEND=x11 && inkscape
+```
+
+[This is because Inkstitch doesn't work properly with Wayland](https://inkstitch.org/docs/install-linux/#some-inkstitch-dialogs-disappear-after-a-few-seconds-or-dont-show-up-at-all)
+
+
 
 ## Installation
 
-You can install the development version of `{odestitch}` like so:
+You can install the package by cloning the repo and, from the project directory running:
 
-```{r}
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+```{r, eval = FALSE}
+devtools::install()
 ```
 
 ## Run
