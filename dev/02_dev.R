@@ -23,6 +23,8 @@ attachment::att_amend_desc()
 golem::add_module(name = "resultgraph", with_test = TRUE) # Name of the module
 golem::add_module(name = "lorentz", with_test = TRUE) # Name of the module
 golem::add_module(name = "stitchgraph", with_test = TRUE) # Name of the module
+golem::add_module(name = "threebody", with_test = TRUE) # Name of the module
+golem::add_module(name = "odeselect", with_test = TRUE) # Name of the module
 
 ## Add helper functions ----
 ## Creates fct_* and utils_*

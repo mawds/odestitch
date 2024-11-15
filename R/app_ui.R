@@ -13,7 +13,11 @@ app_ui <- function(request) {
       pageWithSidebar(
         titlePanel("ODE Stitch"),
         sidebarPanel(
-          mod_lorentz_ui("lorentz_1")
+          selectInput("ode", label="Select ODE",
+                      choices = list("Lorentz"="lorentz",
+                                     "Three body problem"="threebody"),
+                      selected = "lorentz"),
+          uiOutput("odecontrols")
         ),
         mainPanel(
           tabsetPanel(

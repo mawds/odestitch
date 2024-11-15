@@ -26,7 +26,7 @@ mod_lorentz_server <- function(id){
   moduleServer(id, function(input, output, session){
     ns <- session$ns
 
-      reactive({
+    reactive({
       parms=c(sigma=input$sigma,
               beta=input$beta,
               rho=input$rho)
@@ -37,7 +37,7 @@ mod_lorentz_server <- function(id){
 
       values <- solve_lorentz(parms=parms, times=times)
       return(values)
-})
+    })
 
   })
 }
