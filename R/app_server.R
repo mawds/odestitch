@@ -5,8 +5,30 @@
 #' @import shiny
 #' @noRd
 app_server <- function(input, output, session) {
-  # Your application server logic
-  plotdata <- mod_lorentz_server("lorentz_1")
+
+  plotdata <- reactive({
+    switch(input$ode,
+           "lorentz"={
+             mod_lorentz_server("lorentz_1")()
+           },
+           "threebody"={
+             mod_threebody_server("threebody_1")()
+           }
+    )
+  })
+
+
+  # plotdata <- mod_lorentz_server("lorentz_1")
+
+  output$odecontrols <- renderUI({
+    switch(input$ode,
+           lorentz={
+             mod_lorentz_ui("lorentz_1")
+           },
+           "threebody"={
+             mod_threebody_ui("threebody_1")
+           })
+  })
 
   transformation_matrix <- mod_resultgraph_server("resultgraph_1", points_to_plot=plotdata)
 

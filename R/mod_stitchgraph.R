@@ -33,18 +33,20 @@ mod_stitchgraph_server <- function(id, transformation_matrix, full_plotdata){
     plotdata <- eventReactive({full_plotdata(); input$downsample_stitches},
                               {
                                 every_nth(full_plotdata(),
-                                          input$downsample_stitches)
+                                          input$downsample_stitches) |>
+                                  dplyr::mutate(thread=factor(thread))
                               })
 
     two_d_ggplot <- eventReactive({transformation_matrix(); plotdata()}, {
 
-      two_d_projection <- plot3D::trans3D(plotdata()[,2],
-                                          plotdata()[,3],
-                                          plotdata()[,4],
+      two_d_projection <- plot3D::trans3D(plotdata()$x,
+                                          plotdata()$y,
+                                          plotdata()$z,
                                           transformation_matrix())
 
-      tibble::tibble(x=two_d_projection$x, y=two_d_projection$y)  |>
-        ggplot2::ggplot(ggplot2::aes(x=x, y=y)) +
+      tibble::tibble(x=two_d_projection$x, y=two_d_projection$y, thread=plotdata()$thread)  |>
+        ggplot2::ggplot(ggplot2::aes(x=x, y=y,
+                                     colour=thread, group=thread)) +
         ggplot2::geom_path() +
         ggplot2::theme_void()
     })
@@ -54,7 +56,7 @@ mod_stitchgraph_server <- function(id, transformation_matrix, full_plotdata){
 
       if(input$show_stitches)
         plt <- plt +
-          ggplot2::geom_point(col="blue")
+          ggplot2::geom_point(alpha=0.5)
 
       plt
       })
