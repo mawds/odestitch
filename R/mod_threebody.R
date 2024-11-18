@@ -29,6 +29,7 @@ mod_threebody_server <- function(id){
     ns <- session$ns
 
     reactive({
+      # ICs from http://www.simplyintegrate.de/sib/index.html#x1-40002
       req(input$initial_conditions, input$num_points, input$max_time)
       # Default to unit mass for each
       parms <- c(m1=1,m2=1,m3=1)
