@@ -11,7 +11,7 @@ mod_threebody_ui <- function(id) {
   ns <- NS(id)
 
   tagList(
-    selectInput(ns("initial_conditions"), "Initial_conditions",
+    selectInput(ns("initial_conditions"), "Initial conditions",
                 choices = list("Pythagorean"="pythagorean",
                                "Eight"="eight",
                                "Random position"="random_position"),
