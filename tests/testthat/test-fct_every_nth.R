@@ -1,6 +1,6 @@
 test_that("downsampling works", {
 
-  test_tibble <- tibble(x=c(1,2,3,4), thread=1)
+  test_tibble <- tibble::tibble(x=c(1,2,3,4), thread=1)
 
 
   expect_equal(test_tibble, every_nth(test_tibble,1))

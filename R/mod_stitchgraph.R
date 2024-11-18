@@ -34,7 +34,7 @@ mod_stitchgraph_server <- function(id, transformation_matrix, full_plotdata){
                               {
                                 every_nth(full_plotdata(),
                                           input$downsample_stitches) |>
-                                  mutate(thread=factor(thread))
+                                  dplyr::mutate(thread=factor(thread))
                               })
 
     two_d_ggplot <- eventReactive({transformation_matrix(); plotdata()}, {

@@ -12,9 +12,9 @@
 every_nth <- function(intibble, n=1) {
 
   downsampled <- intibble |>
-    group_by(thread) |>
-    filter(row_number() %% {{n}}==0) |>
-    ungroup()
+    dplyr::group_by(thread) |>
+    dplyr::filter(dplyr::row_number() %% {{n}}==0) |>
+    dplyr::ungroup()
 
   return(downsampled)
 

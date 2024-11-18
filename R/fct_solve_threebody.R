@@ -1,5 +1,3 @@
-library(tidyverse)
-
 # r1,r2,r3,v1,v2,v3
 # Based on https://towardsdatascience.com/modelling-the-three-body-problem-in-classical-mechanics-using-python-9dc270ad7767
 threebody<- function(t, y, parms)
@@ -62,9 +60,9 @@ solve_threebody <- function(parms=c(m1=1,m2=1,m3=1),
 	                     y=yinit,
 	                     parms=parms)
 
-	results <- bind_rows(tibble(t=path[,1], x=path[,"1"], y=path[,"2"], z=path[,"3"], thread=1),
-	                     tibble(t=path[,1], x=path[,"4"], y=path[,"5"], z=path[,"6"], thread=2),
-	                     tibble(t=path[,1], x=path[,"7"], y=path[,"8"], z=path[,"9"], thread=3)
+	results <- dplyr::bind_rows(tibble::tibble(t=path[,1], x=path[,"1"], y=path[,"2"], z=path[,"3"], thread=1),
+	                     tibble::tibble(t=path[,1], x=path[,"4"], y=path[,"5"], z=path[,"6"], thread=2),
+	                     tibble::tibble(t=path[,1], x=path[,"7"], y=path[,"8"], z=path[,"9"], thread=3)
 	)
 	return(results)
 }

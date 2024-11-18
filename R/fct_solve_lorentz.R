@@ -21,7 +21,7 @@ lorenz <- function(t, y, parms)
 #'
 #' @noRd
 solve_lorentz <- function(parms=c(sigma= 10, beta= 8/3, rho= 28),
-                          yinit=runif(3),
+                          yinit=stats::runif(3),
                           times=seq(from=0, by= 1e-3, length.out= 5e4)) {
 
   stopifnot(names(parms)==c("sigma", "beta", "rho"))
@@ -35,7 +35,7 @@ solve_lorentz <- function(parms=c(sigma= 10, beta= 8/3, rho= 28),
 	                     parms=parms,
 	                     method="rk4")
 
-	results <- tibble(t=path[,1],
+	results <- tibble::tibble(t=path[,1],
 	                  x=path[,2],
 	                  y=path[,3],
 	                  z=path[,4],

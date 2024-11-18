@@ -44,7 +44,7 @@ mod_threebody_server <- function(id){
                    0.466203685, 0.43236573, 0,
                    -0.93240737, -0.86473146, -0 )
       } else if (input$initial_conditions == "random_position"){
-        yinit <- runif(18)
+        yinit <- stats::runif(18)
       }
 
 

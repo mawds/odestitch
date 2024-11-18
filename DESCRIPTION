@@ -9,11 +9,13 @@ License: file LICENSE
 Imports: 
     config,
     deSolve,
+    dplyr,
     ggplot2,
     golem,
     plot3D,
     shiny,
     shinycssloaders,
+    stats,
     svglite,
     tibble
 Suggests: 
