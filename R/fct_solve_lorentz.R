@@ -34,4 +34,13 @@ solve_lorentz <- function(parms=c(sigma= 10, beta= 8/3, rho= 28),
 	                     y=yinit,
 	                     parms=parms,
 	                     method="rk4")
+
+	results <- tibble(t=path[,1],
+	                  x=path[,2],
+	                  y=path[,3],
+	                  z=path[,4],
+	                  thread=1
+	                  )
+
+	return(results)
 }

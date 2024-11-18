@@ -1,8 +1,12 @@
 test_that("downsampling works", {
-  testmat <- matrix(c(1,1,2,2,3,3,4,4,5,5), ncol=2, byrow=TRUE)
 
-  expect_equal(testmat, every_nth(testmat,1))
-  expect_equal(every_nth(testmat,2), structure(c(1, 3, 5, 1, 3, 5), dim = 3:2))
-  expect_error(every_nth(testmat, nrow(testmat)))
+  test_tibble <- tibble(x=c(1,2,3,4), thread=1)
+
+
+  expect_equal(test_tibble, every_nth(test_tibble,1))
+  expect_equal(every_nth(test_tibble,2),
+               structure(list(x = c(2, 4), thread = c(1, 1)), class = c("tbl_df",
+                                                                        "tbl", "data.frame"), row.names = c(NA, -2L))
+  )
 
 })
