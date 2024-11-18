@@ -8,9 +8,14 @@ Description: Generate SVGs (for import into Inkstitch) of the numerical
 License: file LICENSE
 Imports: 
     config,
+    deSolve,
+    ggplot2,
     golem,
     plot3D,
-    shiny
+    shiny,
+    shinycssloaders,
+    svglite,
+    tibble
 Suggests: 
     spelling,
     testthat (>= 3.0.0)

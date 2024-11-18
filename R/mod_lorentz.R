@@ -13,7 +13,7 @@ mod_lorentz_ui <- function(id) {
     sliderInput(ns("sigma"), "Sigma", value=10, min=1,max=20, step=0.1, round=0.1),
     sliderInput(ns("beta"), "Beta", value=8/3, min=1, max=10, step=0.1, round=0.1),
     sliderInput(ns("rho"), "Rho", value=28, min=1,max=50, step=0.1, round=0.1),
-    numericInput(ns("delta_t"), "delta t", value=1e-3, min=1e-5, max=0.1),
+    numericInput(ns("delta_t"), "delta t", value=5e-3, min=1e-5, max=0.1),
     numericInput(ns("max_time"), "Maximium time", value=50, min=1, max=500)
     # TODO y[1:3]
   )
